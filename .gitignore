@@ -130,3 +130,6 @@ dmypy.json
 
 #Reddit Authentication
 secrets_reddit.py
+
+#Standalone_admin_password
+standalone_admin_password.txt
