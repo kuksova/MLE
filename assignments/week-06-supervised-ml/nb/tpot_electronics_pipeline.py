@@ -1,8 +1,8 @@
 import numpy as np
 import pandas as pd
 from sklearn.decomposition import FastICA
-from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.model_selection import train_test_split
+from sklearn.neural_network import MLPClassifier
 from sklearn.pipeline import make_pipeline
 from tpot.export_utils import set_param_recursive
 
@@ -14,8 +14,8 @@ training_features, testing_features, training_target, testing_target = \
 
 # Average CV score on the training set was: 1.0
 exported_pipeline = make_pipeline(
-    FastICA(tol=0.30000000000000004),
-    ExtraTreesClassifier(bootstrap=True, criterion="entropy", max_features=0.9000000000000001, min_samples_leaf=2, min_samples_split=5, n_estimators=100)
+    FastICA(tol=0.35000000000000003),
+    MLPClassifier(alpha=0.0001, learning_rate_init=0.1)
 )
 # Fix random state for all the steps in exported pipeline
 set_param_recursive(exported_pipeline.steps, 'random_state', 42)
